@@ -64,13 +64,20 @@ public class ArduinoControl : MonoBehaviour
         else {
             //Debug.Log("=====" + (eulerAngX - avg_eulerAngX) + "|" + (eulerAngY - avg_eulerAngY) + "|" + (eulerAngZ - avg_eulerAngZ));
             int angX = (int)(eulerAngX - avg_eulerAngX);
+            // flips the quadrants for continnuity
+            if (angX >= 270) {
+                angX = -(360 - angX);
+            }
+
             int angY = (int)(eulerAngY - avg_eulerAngY);
             int angZ = (int)(eulerAngZ - avg_eulerAngZ);
             Debug.Log("=====" + angX + "|" + angY + "|" + angZ);
 
             if (arduino.IsOpen)
             {
-                arduino.WriteLine(angY.ToString());
+                //arduino.WriteLine(angY.ToString());
+                string dataToSend = angX.ToString() + "," + angY.ToString();
+                arduino.WriteLine(dataToSend);
                 Debug.Log("----: " + angY.ToString());
                 //arduino.Close();
             }
