@@ -1,5 +1,7 @@
 # FPV-head-controller-with-VR
 
-[] completed head rotation, left side rotation
-[] need to finish the right side rotation
-[] CAD to mount the servos
+[_] completed head rotation, left side rotation </br>
+[_] need to finish the right side rotation </br>
+[_] CAD to mount the servos </br>
+
+
